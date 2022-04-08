@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Comment from "./Comment";
+import Condition from "./condition";
 import WithFetching from './withFetching'
 
 const Posts = ({ data, loading, error}) => {
   const [current, setCurrent] = useState("");
 
-  
   function getComments(id) {
     setCurrent(id);
   }
@@ -13,28 +13,23 @@ const Posts = ({ data, loading, error}) => {
   return (
     <div>
       <h2>User's Post</h2>
-      {!!error && <p>{error}</p>}
-      {loading ? (
-        <h5>Loading....</h5>
-      ) : (
-        <ul>
-          {data.map((post) => (
-            <li key={post.id}>
-              <div className="title">{post.title}</div>
-              <div className="post">{post.body}</div>
-              <div className="link" onClick={() => getComments(post.id)}>
-                View Comment
-              </div>
-              {current === post.id && (
-                <Comment
-                  link={`https://jsonplaceholder.typicode.com/comments/${post.id}`}
-                />
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul>
+        {data.map((post) => (
+          <li key={post.id}>
+            <div className="title">{post.title}</div>
+            <div className="post">{post.body}</div>
+            <div className="link" onClick={() => getComments(post.id)}>
+              View Comment
+            </div>
+            {current === post.id && (
+              <Comment
+                link={`https://jsonplaceholder.typicode.com/comments/${post.id}`}
+              />
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
-export default WithFetching(Posts);
+export default WithFetching(Condition(Posts));

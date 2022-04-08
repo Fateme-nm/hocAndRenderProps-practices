@@ -3,8 +3,8 @@ function WithFetching(Component) {
   return function WithFetchingComponent({ link, ...props }) {
   
     const [loading, setLoading] = useState(false);
-    const [data, setData] = useState([]);
     const [error, setError] = useState("");
+    const [data, setData] = useState([]);
 
     useEffect(() => {
       setLoading(true);
