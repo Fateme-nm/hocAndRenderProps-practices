@@ -1,5 +1,4 @@
-import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Comment from "./Comment";
 import WithFetching from './withFetching'
 
