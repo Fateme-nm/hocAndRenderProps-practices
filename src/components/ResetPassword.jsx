@@ -35,12 +35,14 @@ const Resetpassword = ({user}) => {
  
     const newPasswordField = () => {
         return (
-            <><label>Enter your newPassword:
-                <input
-                    type="password"
-                    name="password"
-                    onChange={(e) => handleChangeNewPass(e)} />
-            </label><br></br></>
+            <>
+                <label>Enter your newPassword:
+                    <input
+                        type="password"
+                        name="password"
+                        onChange={(e) => handleChangeNewPass(e)} />
+                </label><br></br>
+            </>
         )
     }
 
